@@ -3,6 +3,12 @@
 <head>
   <title>Be My Valentine? 💖</title>
 
+  <!-- WhatsApp Preview Meta Tags -->
+  <meta property="og:title" content="💖 Be My Valentine?" />
+  <meta property="og:description" content="Tee, someone has a very important question for you 💕" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blazem-crypto.github.io/Valentine/" />
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -44,7 +50,7 @@
 </head>
 <body>
 
-  <h1>💖 Tee, will you be my forever Valentine? 💖</h1>
+  <h1>💖 Tee, will you be my Valentine? 💖</h1>
 
   <div>
     <button onclick="yes()">Yes 💘</button>
@@ -56,9 +62,8 @@
   <script>
     function yes() {
       document.getElementById("response").innerHTML =
-        "🎉 You will get your gifts on the day Osita! 💕 We Locked In!";
+        "🎉 You will get your gifts on the day Osita! 💕 We Locked In";
 
-      // Disable buttons after Yes
       document.querySelectorAll("button").forEach(btn => btn.disabled = true);
 
       startHeartRain();
@@ -76,17 +81,19 @@
       const interval = setInterval(() => {
         const heart = document.createElement("div");
         heart.classList.add("heart");
-        heart.textContent = "💖";
+        heart.innerHTML = "💖";
 
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.animationDuration = Math.random() * 2 + 3 + "s";
 
         document.body.appendChild(heart);
 
-        setTimeout(() => heart.remove(), 5000);
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
       }, 200);
 
-      // Stop heart rain after 5 seconds
+      // Stop after 5 seconds
       setTimeout(() => clearInterval(interval), 10000);
     }
   </script>
